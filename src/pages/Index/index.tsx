@@ -5,10 +5,15 @@ import "./index.scss";
 import { Switch } from "antd-mobile";
 import index from "../../store/index";
 import banner from "../../images/banner/banner.jpg";
+import { Footer } from "../index";
 import { History } from "history";
 
-const Index = (props: any) => {
-  console.log(props, index, "000---");
+interface Props {
+  history: History;
+}
+
+const Index = (props: Props) => {
+  const { history } = props;
   return (
     <div className="home-page">
       <img className="banner-img" src={banner} alt="" />
@@ -17,13 +22,31 @@ const Index = (props: any) => {
           <div
             className="from"
             onClick={() => {
-              props.history.push("/selectCity");
+              history.push({
+                pathname: "selectCity",
+                state: { station: "from" },
+              });
             }}
           >
             {index.from}
           </div>
-          <i className="iconfont icon-qiehuan"></i>
-          <div className="to">{index.to}</div>
+          <i
+            className="iconfont icon-qiehuan"
+            onClick={() => {
+              index.exchangeStation();
+            }}
+          ></i>
+          <div
+            className="to"
+            onClick={() => {
+              history.push({
+                pathname: "selectCity",
+                state: { station: "to" },
+              });
+            }}
+          >
+            {index.to}
+          </div>
         </div>
         <div className="date-box">
           <div className="date">2月26日</div>
@@ -35,6 +58,7 @@ const Index = (props: any) => {
         </div>
         <div className="btn">查询车票</div>
       </div>
+      <Footer />
     </div>
   );
 };
