@@ -1,0 +1,59 @@
+.home-page {
+  .banner-img {
+    width: 100%;
+  }
+  .station-info {
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 90%;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    .station {
+      border-bottom: 1px solid #eee;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .from,
+      .to {
+        width: 120px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .iconfont {
+        font-size: 22px;
+      }
+    }
+    .date-box {
+      padding: 0 40px;
+      border-bottom: 1px solid #eee;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      .date {
+        font-size: 18px;
+        margin-right: 5px;
+      }
+    }
+    .high-speed {
+      padding: 0 40px;
+      border-bottom: 1px solid #eee;
+      height: 45px;
+      display: flex;
+      align-items: center;
+    }
+    .btn {
+      margin: 10px auto;
+      width: 70%;
+      height: 35px;
+      background: #1890ff;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #fff;
+    }
+  }
+}
