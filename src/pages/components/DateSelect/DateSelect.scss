@@ -1,0 +1,30 @@
+.date-page{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .date-box{
+    flex: 1;
+    position: relative;
+
+    .am-calendar{
+      .mask{
+        display: none !important;
+      }
+      .content {
+        position: relative;
+        .header{
+          display: none;
+        }
+        .week-panel{
+          background: #66aefc;
+          .cell{
+            color: #fff;
+          }
+        }
+        .confirm-panel{
+          display: none;
+        }
+      }
+    }
+  }
+}

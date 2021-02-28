@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { observable, isArrayLike, computed, action } from "mobx";
 import { observer } from "mobx-react";
 import "./index.scss";
@@ -12,8 +12,16 @@ interface Props {
   history: History;
 }
 
+
+
 const Index = (props: Props) => {
   const { history } = props;
+  
+  useEffect(() => {
+    let date = new Date(new Date().toDateString()).getTime();
+    index.today = date;
+  }, [])
+  console.log(index.selectDate, new Date(index.selectDate).getUTCDay(), index.highSpeed, '000-index')
   return (
     <div className="home-page">
       <img className="banner-img" src={banner} alt="" />
@@ -22,9 +30,9 @@ const Index = (props: Props) => {
           <div
             className="from"
             onClick={() => {
+              index.station = 'from';
               history.push({
                 pathname: "selectCity",
-                state: { station: "from" },
               });
             }}
           >
@@ -39,24 +47,34 @@ const Index = (props: Props) => {
           <div
             className="to"
             onClick={() => {
+              index.station = 'to';
               history.push({
-                pathname: "selectCity",
-                state: { station: "to" },
+                pathname: "selectCity"
               });
             }}
           >
             {index.to}
           </div>
         </div>
-        <div className="date-box">
-          <div className="date">2月26日</div>
-          <div className="day-of-week">周五</div>
+        <div className="date-box" 
+          onClick={() => {
+            history.push({
+              pathname: "selectDate"
+            });
+          }}
+        >
+          <div className="date">{new Date(index.selectDate).getMonth() + 1}月{new Date(index.selectDate).getDate()}日</div>
+          <div className="day-of-week">周{['一', '二', '三', '四', '五', '六', '日'][new Date(index.selectDate).getUTCDay()]}</div>
         </div>
         <div className="high-speed">
           只看高铁/动车
-          <Switch checked={false} onChange={() => {}} />
+          <Switch checked={index.highSpeed} 
+            onChange={(e) => {
+              index.highSpeed = e;
+            }} 
+          />
         </div>
-        <div className="btn">查询车票</div>
+        <div className="btn" onClick={() => {}}>查询车票</div>
       </div>
       <Footer />
     </div>

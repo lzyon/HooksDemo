@@ -1,0 +1,47 @@
+.city-page{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .searchCity{
+    background: #1890ff;
+  }
+
+  .cityList{
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .cityCate{
+    .cateName{
+      padding: 0 20px;
+      height: 30px;
+      line-height: 30px;
+      background: #eee;
+    }
+  }
+
+  .cityItem{
+    padding: 0 20px;
+    height: 32px;
+    line-height: 32px;
+    border-bottom: 1px solid #d9d9d9;
+  }
+
+  .emptyList{
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .locationList{
+    position: absolute;
+    top: 100px;
+    right: 10px;
+    color: #1890ff;
+    .locationItem{
+      height: 28px;
+      line-height: 28px;
+    }
+  }
+}
